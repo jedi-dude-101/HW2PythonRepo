@@ -1,6 +1,9 @@
 def doubler(func):
-	func()
-	func()
+	def double():
+		func()
+		func()
+	return double
+@doubler
 def talk():
 	print("bork")
-doubler(talk)
+talk()
