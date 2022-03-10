@@ -6,4 +6,4 @@ def func_counter(func):
 		global counter
 		counter+=1
 	return funcy
-
+print("\r")
