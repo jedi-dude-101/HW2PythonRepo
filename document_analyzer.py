@@ -8,15 +8,15 @@ for i in range(len(words)):
 		counted_words[word]=1
 	else:
 		counted_words[word]+=1
+#print(counted_words)
 top5={}
-for i in range(5):
-	top5[words[i]]=counted_words[words[i]]
-for key in counted_words:
-	for word in top5:
-		if (counted_words[key]>top5[word]):
-			top5.pop(word,None)
-			top5[word]=counted_words[key]
-			break
+i=0
+for word in sorted(counted_words, key=counted_words.get, reverse=True):
+	if(i>=5):
+		break
+	top5[word]=counted_words[word]
+	i+=1
+
 key_list = list(top5)
 for i in range(5):
 	j=i
