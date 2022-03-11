@@ -26,5 +26,6 @@ for i in range(5):
 			key_list[i]=key_list[j]
 			key_list[j]=temp
 		j+=1
+print('\r')
 for word in key_list:
-	print(f'{word}:{top5[word]}')
+	print(f'{word}: {top5[word]}')
