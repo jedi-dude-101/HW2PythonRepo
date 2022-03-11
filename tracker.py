@@ -1,9 +1,11 @@
 def func_counter(func):
-	global counter
-	counter=0
-	def funcy(y):
-		func(y)
-		global counter
-		counter+=1
+	def funcy(*args, **kwargs):
+		funcy.counter+=1
+		return func(*args, **kwargs)
+	funcy.counter=0
 	return funcy
-print("\r")
+
+@func_counter
+def potato(y):
+	return y+2**3-34
+
