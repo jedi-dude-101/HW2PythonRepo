@@ -8,9 +8,23 @@ for i in range(len(words)):
 		counted_words[word]=1
 	else:
 		counted_words[word]+=1
-top5=0
-for w in sorted(counted_words,key=counted_words.get, reverse=True):
-	print(w,counted_words[w])
-	top5+=1
-	if (top5>6):
-		break
+top5={}
+for i in range(5):
+	top5[words[i]]=counted_words[words[i]]
+for key in counted_words:
+	for word in top5:
+		if (counted_words[key]>top5[word]):
+			top5.pop(word,None)
+			top5[word]=counted_words[key]
+			break
+key_list = list(top5)
+for i in range(5):
+	j=i
+	while(j<len(key_list)):
+		if(top5[key_list[i]]==top5[key_list[j]] and key_list[i]>key_list[j]):
+			temp=key_list[i]
+			key_list[i]=key_list[j]
+			key_list[j]=temp
+		j+=1
+for word in key_list:
+	print(f'{word}:{top5[word]}')
